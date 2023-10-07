@@ -4,7 +4,7 @@ exports.getPosts = (req, res, next) => {
       {
         _id: "1",
         content: "First Post",
-        Title: "This is the First Post!",
+        title: "This is the First Post!",
         imageUrl: "images/rohit.jpg",
         creator: {
           name: "Raj Thombare",
@@ -21,6 +21,14 @@ exports.createPost = (req, res, next) => {
   //create post in db
   res.status(201).json({
     message: "Post created successfully!",
-    post: { id: new Date().toISOString(), title: title, content: content },
+    post: {
+      id: new Date().toISOString(),
+      title: title,
+      content: content,
+      creator: {
+        name: "Raj Thombare",
+      },
+      createdAt: new Date(),
+    },
   });
 };

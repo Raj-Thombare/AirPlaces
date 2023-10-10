@@ -130,10 +130,10 @@ class Feed extends Component {
 
     fetch(url, {
       method: method,
-      body: formData,
       headers: {
         Authorization: "Bearer " + this.props.token,
       },
+      body: formData,
     })
       .then((res) => {
         if (res.status !== 200 && res.status !== 201) {
@@ -267,7 +267,7 @@ class Feed extends Component {
                 <Post
                   key={post._id}
                   id={post._id}
-                  author={post.creator.name}
+                  author={post.creator}
                   date={new Date(post.createdAt).toLocaleDateString("en-US")}
                   title={post.title}
                   image={post.imageUrl}
